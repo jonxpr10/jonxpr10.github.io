@@ -10,7 +10,7 @@ const Authors: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
     return null
   }
 
-  let authors = "Alex Turner"
+  let authors = "Jonathan Peter Rajan"
   if (fileData.frontmatter?.authors) {
     authors = fileData.frontmatter.authors as string
   }

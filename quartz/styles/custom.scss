@@ -14,18 +14,19 @@ body {
 }
 
 // The <a> link back up to content is the last child of the <li>
-li[id^="user-content-fn-"] > * {
+li[id^="user-content-fn-"]>* {
   &:is(blockquote):nth-last-child(2) {
     margin-bottom: $base-margin;
   }
 
   &:not(blockquote):nth-last-child(2) {
-    margin-bottom: 0; /* Do not have unnecessary space before the list item */
+    margin-bottom: 0;
+    /* Do not have unnecessary space before the list item */
   }
 }
 
 // Ensure not too much margin before blockquote
-li > blockquote:first-child {
+li>blockquote:first-child {
   margin-top: $base-margin;
 }
 
@@ -35,7 +36,7 @@ li > blockquote:first-child {
   }
 
   // Footnotes narrower than normal lists
-  & > ol {
+  &>ol {
     padding-left: calc(2.5 * $base-margin);
     padding-right: 0;
   }
@@ -45,7 +46,7 @@ li > blockquote:first-child {
   }
 
   // Ordered lists in footnotes should start at 1, 2, 3, etc.
-  & > li > ol {
+  &>li>ol {
     counter-reset: list;
 
     & li {
@@ -60,12 +61,12 @@ li > blockquote:first-child {
 
 // Ensure that last ol of a li has no bottom margin
 li[id^="user-content-fn-"] {
-  & > ol {
+  &>ol {
     margin-bottom: 0;
   }
 
-  & > p:last-child > a[class*="footnote-backref"]:last-child,
-  & > a[class*="footnote-backref"]:last-child {
+  &>p:last-child>a[class*="footnote-backref"]:last-child,
+  &>a[class*="footnote-backref"]:last-child {
     display: inline-block; // Show the last backref
     color: color-mix(in srgb, var(--color-link) 70%, transparent);
     text-decoration: none;
@@ -89,8 +90,8 @@ a[id*="fnref-"] {
   }
 }
 
-dd > ul:first-child,
-dd > ol:first-child {
+dd>ul:first-child,
+dd>ol:first-child {
   margin-top: 0;
 }
 
@@ -100,7 +101,7 @@ dd {
   margin-bottom: calc(2 * $base-margin);
   overflow-wrap: break-word;
 
-  & > p:first-child {
+  &>p:first-child {
     margin-top: 0;
   }
 }
@@ -130,7 +131,7 @@ ol {
   // Simulate the implicit padding-left of ul (the bullet isn't flush with the text)
   padding-left: $list-padding-left;
 
-  & > li {
+  &>li {
     padding-left: $li-padding-left;
     counter-increment: list; // Increment the list counter for each list item
     margin-bottom: var(--li-margin-bottom);
@@ -139,9 +140,7 @@ ol {
     @supports (-webkit-hyphens: none) {
       :not(#toc-content, #toc-content-mobile, .footnotes) & {
         padding-left: 0; // Safari effectively has extra padding-left
-        margin-left: calc(
-          0.5 * $base-margin
-        ); // Somehow margin-left is better than padding-left here
+        margin-left: calc(0.5 * $base-margin ); // Somehow margin-left is better than padding-left here
       }
     }
 
@@ -151,21 +150,20 @@ ol {
     }
 
     // Nested lists
-    & > ol {
+    &>ol {
       counter-reset: sublist; // Each nested ordered list has its own sublist counter
       margin-bottom: 0;
       margin-top: 0;
 
       li {
         counter-increment: sublist; // Increment the sublist counter for nested list items
+
         &::marker {
           content: counters(list, ".") "." counters(sublist, "."); // Display combined list and sublist counters for nested list items
         }
 
         &:first-child {
-          margin-top: var(
-            --li-margin-bottom
-          ); // Remove top margin from the first nested list item
+          margin-top: var(--li-margin-bottom); // Remove top margin from the first nested list item
         }
       }
     }
@@ -199,7 +197,7 @@ ol {
       content: counter(footnote) "."; // Display the counter followed by a period
     }
 
-    & > figure {
+    &>figure {
       display: inline; // Else it's misaligned with top of table
     }
 
@@ -257,32 +255,13 @@ sup {
   display: flex;
   justify-content: center;
 
-  & > span {
-    vertical-align: middle;
-    font-family: "EBGaramond12", serif;
-    font-size: 3rem;
-    filter: saturate(90%);
-    color: var(--blue);
-    opacity: light-dark(0.6, 0.7);
-  }
-
-  // Left text flourish
-  & > span:first-of-type {
-    margin-right: calc(0.75 * $base-margin);
-  }
-
-  // Trout ornament
-  & > img {
-    width: calc(6 * $base-margin);
-    margin-top: calc(2 * $base-margin);
-    margin-bottom: calc(2 * $base-margin);
-    filter: light-dark(none, invert(66%)) !important;
-    opacity: light-dark(0.5, 1);
-  }
-
-  // Right text flourish
-  & > span:last-of-type {
-    margin-left: calc($base-margin);
+  // Footer ornament image
+  &>img {
+    width: calc(20 * $base-margin);
+    max-width: 420px;
+    height: auto;
+    margin-top: calc(3 * $base-margin);
+    margin-bottom: calc(3 * $base-margin);
   }
 }
 
@@ -290,11 +269,15 @@ sup {
   position: relative;
 }
 
-.video-container > .vsc-controller {
-  position: absolute !important; /* remove from flow */
-  inset: 0; /* stretch over the whole video */
-  pointer-events: none; /* keep clicks for the extension if you prefer, otherwise remove */
-  background: none !important; /* no extra paint */
+.video-container>.vsc-controller {
+  position: absolute !important;
+  /* remove from flow */
+  inset: 0;
+  /* stretch over the whole video */
+  pointer-events: none;
+  /* keep clicks for the extension if you prefer, otherwise remove */
+  background: none !important;
+  /* no extra paint */
   z-index: 100; // Ensure it's on top of the video but behind eg search-container
 }
 
@@ -337,8 +320,8 @@ figure,
   }
 
   // IDK why but there can be an empty p between the figure and the next element
-  & + figure,
-  & + p:empty + figure {
+  &+figure,
+  &+p:empty+figure {
     margin-top: calc(3 * $base-margin);
   }
 }
@@ -382,6 +365,7 @@ p:has(+ .subtitle),
 
     & a,
     & a:visited {
+
       &,
       & * {
         color: inherit;
@@ -390,7 +374,7 @@ p:has(+ .subtitle),
   }
 }
 
-figure > img {
+figure>img {
   z-index: -1;
 }
 
@@ -407,12 +391,12 @@ figcaption,
 .float-right {
   text-align: center;
   color: var(--midground-strong);
-  font-size: var(--font-size-minus-1); /* smaller than the surrounding text */
+  font-size: var(--font-size-minus-1);
+  /* smaller than the surrounding text */
 }
 
 .float-right {
-  margin: calc(1.5 * $base-margin) 0 calc(1.5 * $base-margin)
-    calc(2 * $base-margin);
+  margin: calc(1.5 * $base-margin) 0 calc(1.5 * $base-margin) calc(2 * $base-margin);
 
   & img,
   img.float-right {
@@ -428,7 +412,7 @@ figcaption,
 .testimonial-maybe-negative-margin {
   margin-top: calc(-7 * $base-margin);
 
-  @media all and (width <= 700px) {
+  @media all and (width <=700px) {
     margin-top: initial;
   }
 }
@@ -468,7 +452,8 @@ figcaption,
 svg.fold-icon {
   --icon-size: 18px;
 
-  display: inline-flex; /* Use inline-flex for better alignment */
+  display: inline-flex;
+  /* Use inline-flex for better alignment */
   align-items: center;
   justify-content: center;
   margin: 0;
@@ -477,12 +462,16 @@ svg.fold-icon {
   cursor: pointer;
   width: var(--icon-size);
   height: var(--icon-size);
-  fill: var(--midground); /* Set the default color here */
-  transition: transform 0.2s ease-out; /* Add a smooth transition */
-  transform: rotate(-90deg); /* Initial 90-degree rotation */
+  fill: var(--midground);
+  /* Set the default color here */
+  transition: transform 0.2s ease-out;
+  /* Add a smooth transition */
+  transform: rotate(-90deg);
+  /* Initial 90-degree rotation */
 
   &[aria-expanded="true"] {
-    transform: rotate(0deg); /* Rotate 180 degrees when expanded */
+    transform: rotate(0deg);
+    /* Rotate 180 degrees when expanded */
   }
 }
 
@@ -494,6 +483,7 @@ hr {
 }
 
 .right {
+
   & h1,
   h2,
   h3,
@@ -503,6 +493,7 @@ hr {
   p,
   a,
   li {
+
     // Don't make popover text gray
     &:not(* .popover-inner *) {
       color: var(--midground);
@@ -545,11 +536,11 @@ video {
   margin-bottom: calc(2 * $base-margin);
   margin-top: $base-margin;
 
-  article > p &,
-  article > &,
-  article > figure > &:not(.float-right),
+  article>p &,
+  article>&,
+  article>figure>&:not(.float-right),
   .video-container &:not(.float-right),
-  figure > &:not(.float-right) {
+  figure>&:not(.float-right) {
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -597,6 +588,7 @@ svg {
 }
 
 body.no-mix-blend-mode {
+
   & img,
   & video,
   & svg {
@@ -604,6 +596,7 @@ body.no-mix-blend-mode {
   }
 
   & #search-layout {
+
     [data-theme="light"] & img:not([src$=".svg"]),
     [data-theme="light"] & video {
       mix-blend-mode: multiply;
@@ -611,7 +604,7 @@ body.no-mix-blend-mode {
   }
 }
 
-p > img {
+p>img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -695,7 +688,7 @@ img.emoji {
   display: flex !important;
 }
 
-.katex-display > .katex > .katex-html > .tag {
+.katex-display>.katex>.katex-html>.tag {
   position: relative !important;
   float: right;
   margin-left: 0.25rem;
@@ -733,7 +726,7 @@ img.emoji {
   opacity: 0.5;
 
   // Safari needs this
-  & > * {
+  &>* {
     filter: inherit;
     opacity: inherit;
   }
@@ -762,8 +755,8 @@ img.emoji {
 
 /* Mermaid styles */
 /* stylelint-disable selector-class-pattern */
-.edgeLabel > div,
-.edgeLabel > p {
+.edgeLabel>div,
+.edgeLabel>p {
   align-items: baseline !important;
   background-color: var(--midground-faintest) !important;
   padding: calc(0.5 * $base-margin);
@@ -792,7 +785,7 @@ img.emoji {
 }
 
 // Edge labels  - TODO not working on safari
-.edgeLabel > .label > foreignObject > div {
+.edgeLabel>.label>foreignObject>div {
   background-color: transparent !important;
   padding: 0 !important;
 
@@ -823,11 +816,11 @@ img.emoji {
   stroke: var(--midground-faint) !important;
 }
 
-foreignObject > div {
+foreignObject>div {
   display: block !important; // "table-cell" default is not centered
 }
 
-.edgeLabel > div,
+.edgeLabel>div,
 .flowchart p,
 .flowchart .katex,
 foreignObject {
@@ -847,6 +840,7 @@ foreignObject {
   margin-left: 0.375em;
   margin-right: 0.375em;
 }
+
 /* stylelint-enable selector-class-pattern */
 
 .manifold-embed {
@@ -962,7 +956,7 @@ iframe {
 figure#goose-terminal {
   line-height: 1.1rem;
 
-  & pre > code > [data-line] {
+  & pre>code>[data-line] {
     text-wrap: nowrap;
   }
 }

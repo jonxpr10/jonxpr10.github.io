@@ -1,34 +1,25 @@
 ---
-permalink: welcome
-hide_metadata: "true"
-title: The Pond
-hide_title: "true"
-aliases:
-  - index
-  - home
-  - welcome
+title: Welcome to The Margin
+description: Notes from the margins - explorations in LLM research, mathematics, theology, and the examined life.
+hide_metadata: true
+hide_authors: true
+toc: false
 hideSubscriptionLinks: true
-description: Writings on AI, self-improvement, and living a good life.
-date_published: 2024-10-27 19:14:04.653922
-date_updated: 2025-11-22 00:21:52.667251
-tags:
-  - website
 ---
 
+Hi, I'm **Jonathan Peter Rajan** — a university student studying mathematics and computer science.
 
+This is my personal corner of the internet where I document my explorations, ideas, and reflections. Here you'll find:
 
+- **LLM Research** — Deep dives into large language model research of all sorts
+- **Mathematics & CS** — Insights from my studies and explorations
+- **Personal Reflections** — Diary-type posts and ideas worth sharing
+- **Theology** — Explorations of faith and meaning
 
+## Why "The Margin"?
 
+The best ideas often emerge in the margins — the annotations, the questions scribbled in the spaces between. This site is my margin: a place to think out loud, work through ideas, and share what I'm learning.
 
+---
 
-
-
-Hello! I'm Alex, and this is my pond. _The Pond_ gathers my writings on topics including AI, self-improvement, and living a good life.
-
-The earliest content dates back to January 2018. Over the years, I've built up a web of ideas and philosophies. I even endorse some of them still! I love [my research](/research), and I hope you love it too.
-
-I also enjoy writing more personal content and sharing a bit [about myself](/about). While my blog's [previous home](http://www.lesswrong.com/user/turntrout) made `TurnTrout` a familiar name to some folks, only a narrow part of me got to shine through. Hopefully the [launch of this site](/launch) changes that!
-
-To get started, check out [my posts](/posts). Stay a while! The water's great.
-
-<video autoplay loop muted playsinline><source src="https://assets.turntrout.com/static/pond-calming.mp4" class="no-vsc" type="video/mp4; codecs=hvc1"><source src="https://assets.turntrout.com/static/pond-calming.webm" class="no-vsc" type="video/webm"></video>
+Feel free to explore and reach out if anything resonates with you.

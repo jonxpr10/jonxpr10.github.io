@@ -71,7 +71,7 @@ export async function checkPortAvailability(port: number): Promise<void> {
  * Handles `npx quartz build`
  */
 export async function handleBuild(argv: BuildArguments): Promise<void> {
-  console.log(chalk.bgGreen.black(`\n turntrout.com v${version} \n`))
+  console.log(chalk.bgGreen.black(`\n The Margin v${version} \n`))
 
   if (argv.serve) {
     await checkPortAvailability(argv.port)
@@ -158,7 +158,7 @@ export async function handleBuild(argv: BuildArguments): Promise<void> {
     }
 
     const result = await ctx.rebuild().catch((err: Error) => {
-      throw new Error(`Couldn't parse turntrout.com configuration: ${fp}\nReason: ${err}`)
+      throw new Error(`Couldn't parse The Margin configuration: ${fp}\nReason: ${err}`)
     })
     release()
 
@@ -296,7 +296,7 @@ export async function handleBuild(argv: BuildArguments): Promise<void> {
   wss.on("connection", (ws: WebSocket) => connections.push(ws))
   console.log(
     chalk.cyan(
-      `Started a turntrout.com server listening at http://localhost:${argv.port}${argv.baseDir}`,
+      `Started The Margin server listening at http://localhost:${argv.port}${argv.baseDir}`,
     ),
   )
   console.log("Hint: exit with Ctrl+C")

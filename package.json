@@ -1,14 +1,14 @@
 {
-  "name": "@alexander-turner/turntrout.com",
-  "description": "A blog on AI, personal development, and living a good life.",
+  "name": "@jonxpr10/the-margin",
+  "description": "Notes from the margins: explorations in LLM research, mathematics, theology, and the examined life.",
   "private": true,
   "type": "module",
-  "author": "alexander-turner <alex@turntrout.com>",
+  "author": "Jonathan Peter Rajan <jonxpr@gmail.com>",
   "license": "CC BY-SA 4.0",
-  "homepage": "https://turntrout.com",
+  "homepage": "https://jonxpr10.github.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexander-turner/TurnTrout.com/"
+    "url": "https://github.com/jonxpr10/the-margin/"
   },
   "scripts": {
     "docs": "tsx quartz/bootstrap-cli.ts build --serve -d docs",

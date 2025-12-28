@@ -8,37 +8,15 @@ import { type QuartzPluginData } from "../vfile"
 import { createSequenceLinksComponent } from "./sequenceLinks"
 import { troutContainerId } from "./trout_hr"
 
-const newsletterElement = h("a", { href: "https://turntrout.substack.com/subscribe" }, [
-  "newsletter",
+export const rssElement = h("a", { href: "/rss.xml", id: "rss-link" }, [
+  h("span", { className: "favicon-span" }, [h("abbr", { class: "small-caps" }, "rss")]),
 ])
 
-const rssSpan = h("span", { className: "favicon-span" }, [
-  h("abbr", { class: "small-caps" }, "rss"),
-])
-export const rssElement = h("a", { href: "/rss.xml", id: "rss-link" }, [rssSpan])
-const subscriptionElement = h("div", { className: "centered" }, [
-  h("div", h("p", ["Find out when I post more content: ", newsletterElement, " & ", rssElement])),
-])
+const mailLink = h("a", { href: "mailto:jonxpr@gmail.com" }, ["jonxpr@gmail.com"])
 
-const mailLink = h("a", { href: "mailto:alex@turntrout.com" }, ["alex@turntrout.com"])
-
-const pgpLink = h(
-  "a",
-  {
-    href: "https://keys.openpgp.org/search?q=alex%40turntrout.com",
-    rel: "noopener noreferrer",
-    target: "_blank",
-  },
-  [h("abbr", { className: "small-caps" }, "pgp")],
-)
-const contactMe = h("div", [
-  h("div", { className: "centered" }, [
-    "Thoughts? Email me at ",
-    h("code", {}, [mailLink]),
-    " (",
-    pgpLink,
-    ")",
-  ]),
+const contactMe = h("div", { className: "centered" }, [
+  "Thoughts? Email me at ",
+  h("code", {}, [mailLink]),
 ])
 
 /**
@@ -72,7 +50,7 @@ function afterArticleTransform(tree: Root, file: VFile) {
 
   // If frontmatter doesn't say to avoid it
   if (!file.data.frontmatter?.hideSubscriptionLinks) {
-    components.push(h("div", { id: "subscription-and-contact" }, [subscriptionElement, contactMe]))
+    components.push(h("div", { id: "subscription-and-contact" }, [contactMe]))
   }
 
   if (components.length > 0) {

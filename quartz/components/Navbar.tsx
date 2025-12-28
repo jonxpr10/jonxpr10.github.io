@@ -4,7 +4,7 @@
 import React from "react"
 
 import { type FullSlug, pathToRoot, resolveRelative } from "../util/path"
-import { defaultTitle, pondVideoId } from "./constants"
+import { defaultTitle } from "./constants"
 // @ts-expect-error Not a module but a script
 // skipcq: JS-W1028
 import script from "./scripts/navbar.inline"
@@ -103,22 +103,14 @@ type Page = {
   title: string
 }
 
-const headerVideoSpan = (
-  <span id="header-video-container" className="video-container" data-persist-video="true">
-    <video
-      id={pondVideoId}
-      className="no-select no-vsc"
-      loop
-      muted
-      playsInline
-      data-persist
-      preload="auto"
-      poster="/static/pond_frame.avif"
+const headerLogoSpan = (
+  <span id="header-logo-container" className="logo-container">
+    <img
+      src="/static/logo.svg"
+      alt="The Margin logo"
+      className="site-logo no-select"
       aria-hidden="true"
-    >
-      <source src="/static/pond.mov" type="video/mp4; codecs=hvc1" />
-      <source src="/static/pond.webm" type="video/webm" />
-    </video>
+    />
   </span>
 )
 
@@ -149,30 +141,18 @@ const NavbarComponent: QuartzComponent = ({ cfg, fileData }: QuartzComponentProp
     <nav className="menu">
       <ul>
         {links}
-        <li>
-          <a
-            href="https://turntrout.substack.com/subscribe"
-            className="external"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Subscribe
-          </a>
-        </li>
       </ul>
     </nav>
   )
   return (
     <div id="navbar" className="navbar">
       <div id="navbar-left">
-        {headerVideoSpan}
+        {headerLogoSpan}
         <h2>
           <a href={baseDir} className="internal">
             {title}
           </a>
         </h2>
-        {videoToggle}
-        {darkMode}
       </div>
       <div id="navbar-right">
         {searchHTML}

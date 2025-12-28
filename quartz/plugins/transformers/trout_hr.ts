@@ -4,22 +4,18 @@ import { visit } from "unist-util-visit"
 
 import type { QuartzTransformerPlugin } from "../types"
 
-import { specialFaviconPaths } from "../../components/constants"
-
 export const troutContainerId = "trout-ornament-container"
 
 import { h } from "hastscript"
 
 export const ornamentNode: Element = h("div", { id: troutContainerId }, [
-  h("span", { class: "no-select", "aria-hidden": "true" }, "☙"),
   h("img", {
-    src: specialFaviconPaths.turntrout,
+    src: "/static/footer.svg",
     alt: "",
-    class: "no-select",
+    class: "no-select footer-ornament",
     loading: "lazy",
     "aria-hidden": "true",
   }),
-  h("span", { class: "no-select", "aria-hidden": "true" }, "❧"),
 ])
 
 /**

@@ -10,7 +10,7 @@ import style from "../styles/listPage.scss"
 
 export const allSlug = "all-posts" as FullSlug
 export const allTitle = "All Posts"
-export const allDescription = "A listing of all posts on turntrout.com."
+export const allDescription = "A listing of all posts on The Margin."
 export const allPostsListing = "all-posts-listing"
 
 /**

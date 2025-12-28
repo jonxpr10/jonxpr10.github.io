@@ -268,28 +268,35 @@ export const PopulateContainers: QuartzEmitterPlugin = () => {
       return []
     },
     async emit(ctx) {
-      const testPagePath = joinSegments(ctx.argv.output, `${testPageSlug}.html`)
+      const emittedFiles: FilePath[] = []
 
-      const testPageFiles = await populateElements(testPagePath, [
-        {
-          id: "populate-favicon-container",
-          generator: generateFaviconContent(),
-        },
-      ])
+      const testPagePath = joinSegments(ctx.argv.output, `${testPageSlug}.html`)
+      if (fs.existsSync(testPagePath)) {
+        const testPageFiles = await populateElements(testPagePath, [
+          {
+            id: "populate-favicon-container",
+            generator: generateFaviconContent(),
+          },
+        ])
+        emittedFiles.push(...testPageFiles)
+      }
 
       const designPagePath = joinSegments(ctx.argv.output, `${designPageSlug}.html`)
-      const designPageFiles = await populateElements(designPagePath, [
-        {
-          className: "populate-site-favicon",
-          generator: generateSiteFaviconContent(),
-        },
-        {
-          id: "populate-favicon-threshold",
-          generator: generateConstantContent(minFaviconCount),
-        },
-      ])
+      if (fs.existsSync(designPagePath)) {
+        const designPageFiles = await populateElements(designPagePath, [
+          {
+            className: "populate-site-favicon",
+            generator: generateSiteFaviconContent(),
+          },
+          {
+            id: "populate-favicon-threshold",
+            generator: generateConstantContent(minFaviconCount),
+          },
+        ])
+        emittedFiles.push(...designPageFiles)
+      }
 
-      return [...testPageFiles, ...designPageFiles]
+      return emittedFiles
     },
   }
 }

@@ -1,16 +1,23 @@
 {
-  "defaultCardUrl": "https://assets.turntrout.com/static/images/fb_preview.png",
-  "defaultCardAlt": "A pond containing a trout and a goose peacefully swimming near a castle.",
-  "defaultTitle": "The Pond",
-  "defaultDescription": "Writings about doing good, thinking well, and living happily.",
+  "defaultCardUrl": "/static/images/card_preview.png",
+  "defaultCardAlt": "The Margin - A personal blog by Jonathan Peter Rajan",
+  "defaultTitle": "The Margin",
+  "defaultDescription": "Notes from the margins: explorations in LLM research, mathematics, theology, and the examined life.",
   "locale": "en-US",
   "localTroutFaviconExtensionDefault": "ico",
   "localTroutFaviconBasenameDefault": "favicon",
   "faviconMimeType": "image/x-icon",
-  "appleTouchIconUrl": "https://assets.turntrout.com/static/images/apple-icon.png",
+  "appleTouchIconUrl": "/static/images/apple-icon.png",
   "faviconBasePath": "https://assets.turntrout.com/static/images/external-favicons",
   "minFaviconCount": 6,
-  "googleSubdomainWhitelist": ["scholar", "play", "docs", "drive", "mail", "colab.research"],
+  "googleSubdomainWhitelist": [
+    "scholar",
+    "play",
+    "docs",
+    "drive",
+    "mail",
+    "colab.research"
+  ],
   "faviconCountWhitelist": [
     "apple_com",
     "x_com",
@@ -75,7 +82,9 @@
   "nodeTypeElement": 1,
   "emojiReplacement": "⤴",
   "twemojiBaseUrl": "https://assets.turntrout.com/twemoji/",
-  "emojisToReplace": ["1fabf"],
+  "emojisToReplace": [
+    "1fabf"
+  ],
   "charsToMoveIntoLinkFromRight": [
     ".",
     ",",

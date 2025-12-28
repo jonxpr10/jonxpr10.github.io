@@ -37,22 +37,21 @@ import {
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "The Pond",
+    pageTitle: "The Margin",
     enablePopovers: true,
     analytics: null,
 
-    baseUrl: "turntrout.com",
+    baseUrl: "jonxpr10.github.io",
     ignorePatterns: ["private", "templates/**", ".obsidian"],
     defaultDateType: "published",
     navbar: {
       pages: [
         { title: "About me", slug: "/about" },
-        { title: "My research", slug: "/research" },
         { title: "All posts", slug: "/posts" },
-        { title: "Open source", slug: "/open-source" },
       ],
     },
   },
+
   plugins: {
     transformers: [
       FrontMatter(),

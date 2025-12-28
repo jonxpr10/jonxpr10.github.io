@@ -88,7 +88,8 @@ const Content: QuartzComponent = ({ fileData, tree }: QuartzComponentProps) => {
 }
 
 function renderTableOfContents(fileData: QuartzComponentProps["fileData"]): JSX.Element | null {
-  if (!fileData.toc || fileData.frontmatter?.toc === "false") {
+  const tocFrontmatter = fileData.frontmatter?.toc
+  if (!fileData.toc || tocFrontmatter === false || tocFrontmatter === "false") {
     return null
   }
   const toc = buildNestedList(fileData.toc, 0, 0)[0]

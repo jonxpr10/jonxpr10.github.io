@@ -6210,5 +6210,17 @@
   "https://assets.turntrout.com/static/images/posts/team-shard-12232025-sunglasses.avif": {
     "width": 3537,
     "height": 2612
+  },
+  "https://assets.turntrout.com/twemoji/1f680.svg": {
+    "width": 36,
+    "height": 36
+  },
+  "https://assets.turntrout.com/twemoji/1f4dd.svg": {
+    "width": 36,
+    "height": 36
+  },
+  "/static/footer.svg": {
+    "width": 3264,
+    "height": 1312
   }
 }
