@@ -260,7 +260,7 @@
     "node-fetch": "3.3.2",
     "pa11y": "9.0.1",
     "pa11y-ci": "4.0.1",
-    "patch-package": "8.0.0",
+    "patch-package": "8.0.1",
     "playwright": "1.50.1",
     "preact": "10.26.0",
     "prettier": "3.5.3",
